@@ -1,0 +1,3 @@
+# TripSharers
+
+Collaborative itenerary planning
