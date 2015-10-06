@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  location: MyString
+  body_of_water: MyString
+  date: 2015-10-06
+  rod_used: MyString
+  line_used: MyString
+  leader_used: MyString
+  tippet_used: MyString
+  water_flow: MyString
+  visibility: MyString
+  best_water_type: MyString
+  weather: MyString
+  best_time_of_day: MyString
+  gps: MyString
+  story: MyText
+  advice: MyText
+  other_notes: MyText
+  title: MyString
+  water_temp: 1.5
+  air_temp: 1.5
+
+two:
+  user_id: 
+  location: MyString
+  body_of_water: MyString
+  date: 2015-10-06
+  rod_used: MyString
+  line_used: MyString
+  leader_used: MyString
+  tippet_used: MyString
+  water_flow: MyString
+  visibility: MyString
+  best_water_type: MyString
+  weather: MyString
+  best_time_of_day: MyString
+  gps: MyString
+  story: MyText
+  advice: MyText
+  other_notes: MyText
+  title: MyString
+  water_temp: 1.5
+  air_temp: 1.5

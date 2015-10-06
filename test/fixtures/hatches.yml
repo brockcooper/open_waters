@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  fishing_report_id: 
+  insect_type: MyString
+  time_of_day: MyString
+  description: MyText
+
+two:
+  user_id: 
+  fishing_report_id: 
+  insect_type: MyString
+  time_of_day: MyString
+  description: MyText

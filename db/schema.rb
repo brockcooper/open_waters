@@ -11,7 +11,80 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807212128) do
+ActiveRecord::Schema.define(version: 20151006131309) do
+
+  create_table "fish", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "fishing_report_id"
+    t.string   "species"
+    t.string   "gps"
+    t.float    "length"
+    t.float    "weight"
+    t.text     "story"
+    t.integer  "fly_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "fish", ["fishing_report_id"], name: "index_fish_on_fishing_report_id"
+  add_index "fish", ["fly_id"], name: "index_fish_on_fly_id"
+  add_index "fish", ["user_id"], name: "index_fish_on_user_id"
+
+  create_table "fishing_reports", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "location"
+    t.string   "body_of_water"
+    t.date     "date"
+    t.string   "rod_used"
+    t.string   "line_used"
+    t.string   "leader_used"
+    t.string   "tippet_used"
+    t.string   "water_flow"
+    t.string   "visibility"
+    t.string   "best_water_type"
+    t.string   "weather"
+    t.string   "best_time_of_day"
+    t.string   "gps"
+    t.text     "story"
+    t.text     "advice"
+    t.text     "other_notes"
+    t.string   "title"
+    t.float    "water_temp"
+    t.float    "air_temp"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "fishing_reports", ["user_id"], name: "index_fishing_reports_on_user_id"
+
+  create_table "flies", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "fishing_report_id"
+    t.string   "name"
+    t.string   "fly_type"
+    t.string   "setup"
+    t.string   "size"
+    t.boolean  "tied_yourself"
+    t.text     "notes"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "flies", ["fishing_report_id"], name: "index_flies_on_fishing_report_id"
+  add_index "flies", ["user_id"], name: "index_flies_on_user_id"
+
+  create_table "hatches", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "fishing_report_id"
+    t.string   "insect_type"
+    t.string   "time_of_day"
+    t.text     "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "hatches", ["fishing_report_id"], name: "index_hatches_on_fishing_report_id"
+  add_index "hatches", ["user_id"], name: "index_hatches_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
