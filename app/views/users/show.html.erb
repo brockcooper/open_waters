@@ -1,0 +1,19 @@
+<% provide(:title, @user.username) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.username %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.fishing_reports.any? %>
+      <h3>Fishing Reports (<%= @user.fishing_reports.count %>)</h3>
+      <ol class="fishing_reports">
+        <%= render @fishing_reports %>
+      </ol>
+    <% end %>
+  </div>
+</div>

@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :validatable, :confirmable
-  has_many :fishing_reports
-  has_many :flies
-  has_many :fish
-  has_many :hatches
+  has_many :fishing_reports, dependent: :destroy
+  has_many :flies, dependent: :destroy
+  has_many :fish, dependent: :destroy
+  has_many :hatches, dependent: :destroy
 
 end
