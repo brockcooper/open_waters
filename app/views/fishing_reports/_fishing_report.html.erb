@@ -1,5 +1,5 @@
 <li id="fishing-report-<%= fishing_report.id %>">
-  <span class="content"><%= fishing_report.title %> - </span>
+  <span class="content"><%= link_to fishing_report.title, user_fishing_report_path(fishing_report.user, fishing_report) %> - </span>
   <span class="report-date">
     <%= fishing_report.date.to_formatted_s(:long) %>
   </span>

@@ -1,0 +1,2 @@
+class FliesController < ApplicationController
+end

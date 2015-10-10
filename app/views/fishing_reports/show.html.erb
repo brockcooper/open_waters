@@ -1,0 +1,49 @@
+<h1><%= @fishing_report.title %></h1>
+<h2><%= @fishing_report.date.to_formatted_s(:long) %></h2>
+
+<ul>
+  <li><b>Location:</b> <%= @fishing_report.location %></li>
+  <li><b>GPS Location: </b><%= @fishing_report.gps %></li>
+  <li><b>Type of Body of Water:</b> <%= @fishing_report.body_of_water %></li>
+  <li><b>Story: </b><%= @fishing_report.story %></li>
+</ul>
+
+<h3>Conditions</h3>
+<ul>
+  <li><b>Weather:</b> <%= @fishing_report.weather %></li>
+  <li><b>Air Temp: </b><%= @fishing_report.air_temp %> °F</li>
+  <li><b>Water Flow: </b><%= @fishing_report.water_flow %></li>
+  <li><b>Water Visibility:</b> <%= @fishing_report.visibility %></li>
+  <li><b>Water Temp: </b><%= @fishing_report.water_temp %> °F</li>
+</ul>
+
+<h3>Hatches</h3>
+<ul>
+  <%= render @hatches %>
+</ul>
+
+<h3>Equipment</h3>
+<ul>
+  <li><b>Rod Used: </b><%= @fishing_report.rod_used %></li>
+  <li><b>Line Used: </b><%= @fishing_report.line_used %></li>
+  <li><b>Leader Used: </b><%= @fishing_report.leader_used %></li>
+  <li><b>Tippet Used: </b><%= @fishing_report.tippet_used %></li>
+</ul>
+
+<h3>Flies Used</h3>
+<ul>
+  <%= render @flies %>
+</ul>
+
+<h3>Fish Caught</h3>
+<ul>
+  <%= render @fish %>
+</ul>
+
+<h3>Advice</h3>
+<ul>
+  <li><b>Best Time of Day to Fish:</b> <%= @fishing_report.best_time_of_day %></li>
+  <li><b>Best Water Feature to Fish:</b> <%= @fishing_report.best_water_type %></li>
+  <li><b>Advice: </b><%= @fishing_report.advice %></li>
+  <li><b>Other Notes:</b> <%= @fishing_report.other_notes %></li>
+</ul>

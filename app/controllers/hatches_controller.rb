@@ -1,0 +1,2 @@
+class HatchesController < ApplicationController
+end
