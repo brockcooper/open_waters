@@ -7,15 +7,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "TripSharers", root_path, class: "navbar-brand white-text"  %>
+      <% if current_user %>
+        <%= link_to "Open Waters", user_path(current_user), class: "navbar-brand white-text"  %>
+      <% else %>
+        <%= link_to "Open Waters", root_path, class: "navbar-brand white-text"  %>
+      <% end %>
     </div>
 
     <% if current_user %>
-      <%= link_to "My Lists", user_path(current_user), class: "navbar-text" %>
+      <% button_html = '<button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>'.html_safe %>
       <form class="navbar-form navbar-right login-blurb">
-        <%= gravatar_for current_user %>
+        <%= link_to button_html, new_user_fishing_report_path(current_user) %>
+        <%= gravatar_for(current_user) %>
         <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          <button type="button" class="btn btn-primary dropdown-toggle btn-lg" data-toggle="dropdown" aria-expanded="false">
             <%= current_user.username %> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">

@@ -34,7 +34,8 @@
 }
 
 .login-blurb img {
-  width: 30px;
+  width: 45px;
+  border-radius: 5px;
   height: auto;
 }
 

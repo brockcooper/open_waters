@@ -1,0 +1,69 @@
+<div class='fishing-report-form'>
+  <%= form_for ([current_user, @fishing_report]) do |f| %>
+    <h2>New Report</h2>
+    <div class="form-group">
+      <%= f.text_field :title, class: 'form-control', placeholder: "Title of Report" %>
+    </div>
+    <div class="form-group">
+      <%= f.date_field :date, class: 'form-control', placeholder: "Date Fished" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :location, class: 'form-control', placeholder: "Geographic Location" %>
+    </div>
+    <div class="form-group">
+      <% body_of_water_options = ['River', 'Lake', 'Ocean', 'Stream', 'Creek', 'Sea', 'Bay', 'Ocean Shore'] %>
+      <%= f.select :body_of_water, body_of_water_options, {}, class: 'form-control'  %>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :story, rows: 8, class: 'form-control', placeholder: "Story" %>
+    </div>
+
+    <h3>Conditions</h3>
+    <div class="form-group">
+      <% weather_options = ['Sunny', 'Partly Cloudy', 'Overcast', 'Light Rain', 'Heavy Rain', 'Snow', 'Foggy'] %>
+      <%= f.select :weather, weather_options, {}, class: 'form-control'  %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :air_temp, class: 'form-control', placeholder: "Air Temperature °F" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :water_flow, class: 'form-control', placeholder: "Water Flow" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :visibility, class: 'form-control', placeholder: "Water Visibility" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :water_temp, class: 'form-control', placeholder: "Water Temperature °F" %>
+    </div>
+
+    <h3>Equipment</h3>
+    <div class="form-group">
+      <%= f.text_field :rod_used, class: 'form-control', placeholder: "Rod Used" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :line_used, class: 'form-control', placeholder: "Line Used" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :leader_used, class: 'form-control', placeholder: "Leader Used" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :tippet_used, class: 'form-control', placeholder: "Tippet Used" %>
+    </div>
+
+    <h3>Advice</h3>
+    <div class="form-group">
+      <%= f.text_field :best_time_of_day, class: 'form-control', placeholder: "Best Time of Day to Fish" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :best_water_type, class: 'form-control', placeholder: "Best Water Feature to Fish" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :advice, rows: 8, class: 'form-control', placeholder: "Advice" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :other_notes, rows: 8, class: 'form-control', placeholder: "Other Notes" %>
+    </div>
+
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  <% end %>
+</div>
