@@ -1,3 +1,3 @@
-# TripSharers
+# Open Waters
 
-Collaborative itenerary planning
+Collaborative fish sharing
