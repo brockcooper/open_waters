@@ -13,7 +13,7 @@ class FishingReportsController < ApplicationController
   def create
     @fishing_report = current_user.fishing_reports.build(fishing_report_params)
     if @fishing_report.save
-      flash[:success] = "Fishing Report created!"
+      flash[:notice] = "Fishing Report created!"
     end
     redirect_to user_path(current_user)
   end
@@ -21,6 +21,6 @@ class FishingReportsController < ApplicationController
   private
 
   def fishing_report_params
-    params.require(:fishing_report).permit(:title, :date, :location, :body_of_water, :story, :weather, :air_temp, :water_flow, :visibility, :water_temp, :rod_used, :line_used, :leader_used, :tippet_used, :best_time_of_day, :best_water_type, :advice, :other_notes )
+    params.require(:fishing_report).permit(:title, :date, :location, :body_of_water, :story, :weather, :air_temp, :water_flow, :visibility, :water_temp, :rod_used, :line_used, :leader_used, :tippet_used, :best_time_of_day, :best_water_type, :advice, :other_notes, hatches_attributes: [:insect_type, :time_of_day, :description], flies_attributes: [:name, :fly_type, :size, :tied_yourself, :notes], fish_attributes: [:species, :gps, :length, :weight, :story]  )
   end
 end

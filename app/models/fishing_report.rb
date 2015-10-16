@@ -9,4 +9,8 @@ class FishingReport < ActiveRecord::Base
 
   default_scope -> { order(date: :desc) }
 
+  accepts_nested_attributes_for :fish, reject_if: :all_blank
+  accepts_nested_attributes_for :flies, reject_if: :all_blank  
+  accepts_nested_attributes_for :hatches, reject_if: :all_blank
+
 end

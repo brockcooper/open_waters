@@ -1,5 +1,5 @@
 <div class='fishing-report-form'>
-  <%= form_for ([current_user, @fishing_report]) do |f| %>
+  <%= form_for ([current_user, setup_fishing_report(@fishing_report)]) do |f| %>
     <h2>New Report</h2>
     <div class="form-group">
       <%= f.text_field :title, class: 'form-control', placeholder: "Title of Report" %>
@@ -36,6 +36,19 @@
       <%= f.text_field :water_temp, class: 'form-control', placeholder: "Water Temperature °F" %>
     </div>
 
+    <h3>Hatches</h3>
+    <%= f.fields_for :hatches do |ff| %>
+      <div class="form-group">
+        <%= ff.text_field :insect_type, class: 'form-control', placeholder: "Insect Species" %>
+      </div>
+      <div class="form-group">
+        <%= ff.text_field :time_of_day, class: 'form-control', placeholder: "Time of Day" %>
+      </div>
+      <div class="form-group">
+        <%= ff.text_field :description, class: 'form-control', placeholder: "Description" %>
+      </div>
+    <% end %>
+
     <h3>Equipment</h3>
     <div class="form-group">
       <%= f.text_field :rod_used, class: 'form-control', placeholder: "Rod Used" %>
@@ -49,6 +62,40 @@
     <div class="form-group">
       <%= f.text_field :tippet_used, class: 'form-control', placeholder: "Tippet Used" %>
     </div>
+
+    <h3>Flies Used</h3>
+    <%= f.fields_for :flies do |ff| %>
+      <div class="form-group">
+        <%= ff.text_field :name, class: 'form-control', placeholder: "Fly Name" %>
+      </div>
+      <div class="form-group">
+        <% fly_types = ['Dry', 'Nymph', 'Streamer'] %>
+        <%= ff.select :fly_type, fly_types, {}, class: 'form-control'  %>
+      </div>
+      <div class="form-group">
+        <%= ff.text_field :size, class: 'form-control', placeholder: "Size" %>
+      </div>
+      <div class="form-group">
+        <%= ff.text_field :notes, class: 'form-control', placeholder: "Notes" %>
+      </div>
+      <div>
+        <%= label_tag :tied_yourself, "Tied Self" %>
+        <%= check_box_tag(:tied_yourself, true, false, class: "checkbox") %>
+      </div>
+      <% end %>
+
+    <h3>Fish Caught</h3>
+    <%= f.fields_for :fish do |ff| %>
+      <div class="form-group">
+        <%= ff.text_field :species, class: 'form-control', placeholder: "Fish Species" %>
+      </div>
+      <div class="form-group">
+        <%= ff.text_field :length, class: 'form-control', placeholder: "Length" %>
+      </div>
+      <div class="form-group">
+        <%= ff.text_field :gps, class: 'form-control', placeholder: "Image URL" %>
+      </div>
+    <% end %>
 
     <h3>Advice</h3>
     <div class="form-group">
