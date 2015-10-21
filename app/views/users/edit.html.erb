@@ -1,0 +1,7 @@
+<%= form_for (current_user) do |f| %>
+  <h1> About Me </h1>
+  <div class="form-group">
+    <%= f.text_area :about_me, rows: 8, class: 'form-control', placeholder: "Story" %>
+   </div>
+   <%= f.submit "Save", class: 'btn btn-success' %>
+<% end %>

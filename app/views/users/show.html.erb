@@ -8,9 +8,23 @@
       </h1>
     </section>
   </aside>
+  <div class='stats'>
+      <h1>Stats</h1>
+      <ul>
+        <li>Fish Caught: <%= @user.fish.count %></li>
+        <li>Days Fished: <%= @user.fishing_reports.count %></li>
+        <li>Followers: 54</li>
+      </ul>
+    </div>
+  <% if current_user = @user %>
+    <div class='about-me'>
+      <h1>About Me <%= link_to 'Edit', edit_user_path(current_user), class: 'edit-link' %></h1>
+      <%= @user.about_me %>
+    </div>
+  <% end %>
   <div class="col-md-8">
     <% if @user.fishing_reports.any? %>
-      <h3>Fishing Reports (<%= @user.fishing_reports.count %>)</h3>
+      <h3>Fishing Reports</h3>
       <ol class="fishing_reports">
         <%= render @fishing_reports %>
       </ol>
