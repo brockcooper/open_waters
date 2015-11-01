@@ -50,3 +50,19 @@
 .devise-form {
   width: 25%;
 }
+
+.stat {
+ -moz-border-radius: 50px/50px;
+    -webkit-border-radius: 50px 50px;
+    border-radius: 50px/50px;
+    border:solid 10px #f00;
+    width:150px;
+    height:150px;
+  border-color: #294860;
+  padding: 10px;
+  margin: 10px;
+  text-align:center;
+  vertical-align:middle;
+  display:inline-block;
+  font-size: 25px;
+}

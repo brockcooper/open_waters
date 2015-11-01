@@ -1,7 +1,7 @@
 <li id="fly-<%= fly.id %>">
-  <b>Name:</b> <%= fly.name %> -
-  <b>Type:</b> <%= fly.fly_type %> -
-  <b>Setup:</b> <%= fly.setup %> -
-  <b>Size:</b> <%= fly.size %> -
-  <b>Self-tied:</b> <%= fly.tied_yourself %>
+  <% if fly.name && fly.name != '' %><b>Name:</b> <%= fly.name %> - <% end %>
+  <% if fly.fly_type && fly.fly_type != '' %><b>Type:</b> <%= fly.fly_type %> - <% end %>
+  <% if fly.setup && fly.setup != '' %><b>Setup:</b> <%= fly.setup %> - <% end %>
+  <% if fly.size && fly.size != '' %><b>Size:</b> <%= fly.size %> - <% end %>
+  <b>Self-tied:</b> <%= fly.tied_yourself ? "Yes" : "No" %>
 </li>

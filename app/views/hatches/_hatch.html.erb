@@ -1,5 +1,5 @@
 <li id="hatch-<%= hatch.id %>">
-  <b>Insect Type:</b> <%= hatch.insect_type %> -
-  <b>Time of Day:</b> <%= hatch.time_of_day %> -
-  <b>Description:</b> <%= hatch.description %>
+  <% if hatch.insect_type && hatch.insect_type != '' %><b>Insect Type:</b> <%= hatch.insect_type %> - <% end %>
+  <% if hatch.time_of_day && hatch.time_of_day != '' %><b>Time of Day:</b> <%= hatch.time_of_day %> - <% end %>
+  <% if hatch.description && hatch.description != '' %><b>Description:</b> <%= hatch.description %> <% end %>
 </li>

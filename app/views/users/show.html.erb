@@ -9,12 +9,11 @@
     </section>
   </aside>
   <div class='stats'>
-      <h1>Stats</h1>
-      <ul>
-        <li>Fish Caught: <%= @user.fish.count %></li>
-        <li>Days Fished: <%= @user.fishing_reports.count %></li>
-        <li>Followers: 54</li>
-      </ul>
+    <div class='row'>
+        <div class='stat col-md-4'>Fish Caught: <%= @user.fish.count %></div>
+        <div class='stat col-md-4'>Days Fished: <%= @user.fishing_reports.count %></div>
+        <div class='stat col-md-4'>Followers: 54</div>
+    </div>
     </div>
   <% if current_user = @user %>
     <div class='about-me'>

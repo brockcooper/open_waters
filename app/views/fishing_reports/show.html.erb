@@ -1,49 +1,118 @@
 <h1><%= @fishing_report.title %></h1>
-<h2><%= @fishing_report.date.to_formatted_s(:long) %></h2>
+<h4><%= @fishing_report.date.to_formatted_s(:long) %></h4>
 
 <ul>
-  <li><b>Location:</b> <%= @fishing_report.location %></li>
-  <li><b>GPS Location: </b><%= @fishing_report.gps %></li>
-  <li><b>Type of Body of Water:</b> <%= @fishing_report.body_of_water %></li>
-  <li><b>Story: </b><%= @fishing_report.story %></li>
+  <% if @fishing_report.location && @fishing_report.location != '' %><li><b>Location:</b> <%= @fishing_report.location %></li><% end %>
+  <% if @fishing_report.gps && @fishing_report.gps != '' %><li><b>GPS Location: </b><%= @fishing_report.gps %></li><% end %>
+  <% if @fishing_report.body_of_water && @fishing_report.body_of_water != '' %><li><b>Type of Body of Water:</b> <%= @fishing_report.body_of_water %></li><% end %>
+  <% if @fishing_report.story && @fishing_report.story != '' %><li><b>Story: </b><%= @fishing_report.story %></li><% end %>
 </ul>
 
-<h3>Conditions</h3>
-<ul>
-  <li><b>Weather:</b> <%= @fishing_report.weather %></li>
-  <li><b>Air Temp: </b><%= @fishing_report.air_temp %> °F</li>
-  <li><b>Water Flow: </b><%= @fishing_report.water_flow %></li>
-  <li><b>Water Visibility:</b> <%= @fishing_report.visibility %></li>
-  <li><b>Water Temp: </b><%= @fishing_report.water_temp %> °F</li>
-</ul>
-
-<h3>Hatches</h3>
-<ul>
-  <%= render @hatches %>
-</ul>
-
-<h3>Equipment</h3>
-<ul>
-  <li><b>Rod Used: </b><%= @fishing_report.rod_used %></li>
-  <li><b>Line Used: </b><%= @fishing_report.line_used %></li>
-  <li><b>Leader Used: </b><%= @fishing_report.leader_used %></li>
-  <li><b>Tippet Used: </b><%= @fishing_report.tippet_used %></li>
-</ul>
-
-<h3>Flies Used</h3>
-<ul>
-  <%= render @flies %>
-</ul>
-
-<h3>Fish Caught</h3>
-<ul>
-  <%= render @fish %>
-</ul>
-
-<h3>Advice</h3>
-<ul>
-  <li><b>Best Time of Day to Fish:</b> <%= @fishing_report.best_time_of_day %></li>
-  <li><b>Best Water Feature to Fish:</b> <%= @fishing_report.best_water_type %></li>
-  <li><b>Advice: </b><%= @fishing_report.advice %></li>
-  <li><b>Other Notes:</b> <%= @fishing_report.other_notes %></li>
-</ul>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Conditions
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <ul>
+          <% if @fishing_report.weather && @fishing_report.weather != '' %><li><b>Weather:</b> <%= @fishing_report.weather %></li><% end %>
+          <% if @fishing_report.air_temp && @fishing_report.air_temp != '' %><li><b>Air Temp: </b><%= @fishing_report.air_temp %> °F</li><% end %>
+          <% if @fishing_report.water_flow && @fishing_report.water_flow != '' %><li><b>Water Flow: </b><%= @fishing_report.water_flow %></li><% end %>
+          <% if @fishing_report.visibility && @fishing_report.visibility != '' %><li><b>Water Visibility:</b> <%= @fishing_report.visibility %></li><% end %>
+          <% if @fishing_report.water_temp && @fishing_report.water_temp != '' %><li><b>Water Temp: </b><%= @fishing_report.water_temp %> °F</li><% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Hatches
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+       <ul>
+        <%= render @hatches %>
+      </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Equipment
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+       <ul>
+          <% if @fishing_report.rod_used && @fishing_report.rod_used != '' %><li><b>Rod Used: </b><%= @fishing_report.rod_used %></li><% end %>
+          <% if @fishing_report.line_used && @fishing_report.line_used != '' %><li><b>Line Used: </b><%= @fishing_report.line_used %></li><% end %>
+          <% if @fishing_report.leader_used && @fishing_report.leader_used != '' %><li><b>Leader Used: </b><%= @fishing_report.leader_used %></li><% end %>
+          <% if @fishing_report.tippet_used && @fishing_report.tippet_used != '' %><li><b>Tippet Used: </b><%= @fishing_report.tippet_used %></li><% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Flies Used
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+       <ul>
+         <%= render @flies %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Fish Caught
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body">
+       <ul>
+          <%= render @fish %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingSix">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Advice
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="panel-body">
+       <ul>
+          <% if @fishing_report.best_time_of_day && @fishing_report.best_time_of_day != '' %><li><b>Best Time of Day to Fish:</b> <%= @fishing_report.best_time_of_day %></li><% end %>
+          <% if @fishing_report.best_water_type && @fishing_report.best_water_type != '' %><li><b>Best Water Feature to Fish:</b> <%= @fishing_report.best_water_type %></li><% end %>
+          <% if @fishing_report.advice && @fishing_report.advice != '' %><li><b>Advice: </b><%= @fishing_report.advice %></li><% end %>
+          <% if @fishing_report.other_notes && @fishing_report.other_notes != '' %><li><b>Other Notes:</b> <%= @fishing_report.other_notes %></li><% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
