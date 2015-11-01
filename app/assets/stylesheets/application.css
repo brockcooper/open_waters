@@ -43,8 +43,9 @@
   color: white;
 }
 
-.white-text {
-  color: white;
+.navbar-brand  {
+  color: white !important;
+  font-size: 30px;
 }
 
 .devise-form {
