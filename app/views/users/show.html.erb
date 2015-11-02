@@ -12,7 +12,7 @@
     <div class='row'>
         <div class='stat col-md-4'>Fish Caught <br><b><%= @user.fish.count %></b></div>
         <div class='stat col-md-4'>Days Fished <br><b><%= @user.fishing_reports.count %></b></div>
-      <div class='stat col-md-4'>Locations Fished <br><b><%= if Rails.env.development? ? @user.fishing_reports.group(:location).length : @user.fishing_reports.distinct.count(:location) %></b></div>
+      <div class='stat col-md-4'>Locations Fished <br><b><%= Rails.env.development? ? @user.fishing_reports.group(:location).length : @user.fishing_reports.distinct.count(:location) %></b></div>
     </div>
     </div>
 
