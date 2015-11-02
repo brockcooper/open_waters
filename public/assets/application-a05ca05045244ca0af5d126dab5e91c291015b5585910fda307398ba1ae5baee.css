@@ -1,0 +1,93 @@
+/*
+
+
+ */
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar {
+  background-color: #294860;
+}
+
+.nav-bar-user-dropdown {
+  background-color: #294860;
+}
+
+#main-jumbotron{
+  margin-top: -20px;
+  width: 100%;
+  background-color: #333333;
+}
+
+.login-blurb{
+  color: white;
+}
+
+.flash-notice{
+  margin-top: -20px;
+}
+
+.removeLinkFormat{
+  text-decoration: none;
+  color: white;
+}
+
+.login-blurb img {
+  width: 45px;
+  border-radius: 5px;
+  height: auto;
+}
+
+.jumbotron h1 {
+  color: white;
+}
+
+.navbar-brand  {
+  color: white !important;
+  font-size: 32px;
+}
+
+.devise-form {
+  width: 25%;
+}
+
+.stat {
+ -moz-border-radius: 50px/50px;
+    -webkit-border-radius: 50px 50px;
+    border-radius: 50px/50px;
+    border:solid 10px #f00;
+    width:150px;
+    height:150px;
+  border-color: #294860;
+  padding: 10px;
+  margin: 10px;
+  text-align:center;
+  vertical-align:middle;
+  display:inline-block;
+  font-size: 25px;
+}
+/* line 4, /home/nitrous/Projects/open_waters/app/assets/stylesheets/fishing_report.scss */
+.fishing-report-form .form-control {
+  width: 50%;
+}
+
+/* line 8, /home/nitrous/Projects/open_waters/app/assets/stylesheets/fishing_report.scss */
+ul {
+  list-style: none;
+}
+
+/* line 12, /home/nitrous/Projects/open_waters/app/assets/stylesheets/fishing_report.scss */
+li {
+  padding-top: 5px;
+}
+
+/* line 16, /home/nitrous/Projects/open_waters/app/assets/stylesheets/fishing_report.scss */
+.fish img {
+  height: auto;
+  width: auto;
+  max-width: 500px;
+  max-height: 150px;
+  padding: 25px;
+}
